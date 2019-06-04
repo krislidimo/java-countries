@@ -208,33 +208,52 @@ public class CountryList {
         countryList.add(new Country("U.S. Virgin Islands",104909,350,42));
         countryList.add(new Country("Antigua and Barbuda",104084,440,32));
         countryList.add(new Country("Seychelles",95702,460,36));
+
+        countryList.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
     }
 
-    public Country findCountry(CheckCountry tester)
-    {
-        for (Country c: countryList)
-        {
-            if (tester.test(c))
-            {
+    public Country findCountry(CheckCountry tester){
+        for (Country c: countryList) {
+            if (tester.test(c)) {
                 return c;
             }
         }
         return null;
     }
 
-    public ArrayList<Country> findEmployees(CheckCountry tester)
-    {
+    public ArrayList<Country> findCountries(CheckCountry tester) {
         ArrayList<Country> tempEmpList = new ArrayList<>();
 
-        for (Country c: countryList)
-        {
-            if (tester.test(c))
-            {
+        for (Country c: countryList) {
+            if (tester.test(c)) {
                 tempEmpList.add(c);
             }
         }
 
         return tempEmpList;
     }
+
+    public Country getMin() {
+        Country min = countryList.get(0);
+        for (Country c : countryList) {
+            if (c.getPopulation() < min.getPopulation()) {
+                min = c;
+            }
+        }
+
+        return min;
+    }
+
+    public Country getMax() {
+        Country max = countryList.get(0);
+        for (Country c : countryList) {
+            if (c.getPopulation() > max.getPopulation()) {
+                max = c;
+            }
+        }
+
+        return max;
+    }
+
 
 }

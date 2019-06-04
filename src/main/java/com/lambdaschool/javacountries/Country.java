@@ -7,7 +7,7 @@ public class Country {
     private static final AtomicLong counter = new AtomicLong();
     private long id;
     private String name;
-    private int population;
+    private long population;
     private int landMassSize;
     private int medianAge;
 
@@ -39,7 +39,7 @@ public class Country {
         this.name = name;
     }
 
-    public int getPopulation() {
+    public long getPopulation() {
         return population;
     }
 
